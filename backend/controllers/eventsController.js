@@ -9,4 +9,17 @@ const getAllEvents = (req, res) => {
         })
 }
 
-export {getAllEvents}
+const addEvent = (req, res) => {
+    const newEvent = {
+        name: req.body.name,
+        description: req.body.description,
+        date: req.body.date,
+        location: req.body.location,
+    }
+    eventsCollection
+        .insertOne(newEvent)
+        .then(dbRes => {
+            res.json(dbRes);
+        })
+}
+export {getAllEvents, addEvent}

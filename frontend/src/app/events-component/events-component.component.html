@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row mt-2">
+    <h1 class="col-9">Liste des évennements</h1>
+    <div class="col-3">
+      <button class="btn btn-primary w-100" (click)="openEventForm()">Ajouter</button>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Date</th>
+        <th scope="col">Lieu</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of eventList">
+        <td>{{event.name}}</td>
+        <td>{{event.date | date:'medium'}}</td>
+        <td>{{event.location}}</td>
+        <td>{{event.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
