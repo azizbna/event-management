@@ -8,6 +8,7 @@ import { EventsComponentComponent } from './events-component/events-component.co
 import { FormsModule } from '@angular/forms';
 import { AddEventModalComponent } from './add-event-modal/add-event-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

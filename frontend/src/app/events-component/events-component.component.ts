@@ -3,6 +3,8 @@ import { EventsService } from '../services/events.service';
 import Evennement from '../models/evennement.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddEventModalComponent } from '../add-event-modal/add-event-modal.component';
+
+
 @Component({
   selector: 'app-events-component',
   templateUrl: './events-component.component.html',
