@@ -62,12 +62,34 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 7px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
   }
   
 
   .icon-container {
     display: flex;
-    gap: 20px; /* Ajustez la valeur selon votre préférence pour l'espacement entre les icônes */
+    gap: 20px; 
   }
   
+
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border: 0px solid #ccc; /* Ajouter une bordure */
+  }
+  
+  
+  .btn-group button:not(:last-child) {
+    border-right: 0px solid #ccc; /* Ajouter une bordure entre les boutons */
+  }
+
+  .btn.btn-outline-primary:hover{
+    background-color: #87ceeb;
+    border-color: rgba(25, 51, 61, 0.933);
+  }
+  
+  .btn.btn-outline-primary{
+    border-color: #87ceeb;
+  }
+
