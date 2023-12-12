@@ -9,12 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { AddEventModalComponent } from './add-event-modal/add-event-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventsComponentComponent,
-    AddEventModalComponent
+    AddEventModalComponent,
+    RegistrationComponent
   ],
   imports: [
     FormsModule,

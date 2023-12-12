@@ -1,0 +1,19 @@
+<!-- registration.component.html -->
+<div>
+    <form #registrationForm="ngForm" (ngSubmit)="registerForEvent()">
+      <label for="firstName">First Name: </label>
+      <input type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName" required />
+  
+      <label for="lastName">Last Name: </label>
+      <input type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName" required />
+  
+      <label for="email">Email: </label>
+      <input type="email" id="email" [(ngModel)]="user.email" name="email" required />
+  
+      <label for="telephone">Telephone: </label>
+      <input type="text" id="telephone" [(ngModel)]="user.telephone" name="telephone" required />
+  
+      <button type="submit" [disabled]="!registrationForm.form.valid">Register</button>
+    </form>
+  </div>
+  
