@@ -1,4 +1,4 @@
-import { registrationsCollection } from '../models/registerEvents.model.js';
+ import { registrationsCollection } from '../models/registerEvents.model.js';
 
 class User {
     constructor(id, firstName, lastName, email, telephone) {
@@ -56,4 +56,6 @@ const getUsersForEvent = (req, res) => {
             console.error(err);
             res.status(500).send("Internal Server Error");
         });
+
 };
+export { registerForEvent, getUsersForEvent, User };
