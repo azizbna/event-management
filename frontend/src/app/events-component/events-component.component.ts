@@ -36,4 +36,18 @@ export class EventsComponentComponent {
         //console.log(error);
       });
     }
+    openUpdateEventForm(event:Evennement) {
+      const modalRef = this.modal.open(AddEventModalComponent, {
+        size: 'md',
+      });
+      modalRef.componentInstance.mode = "maj"
+      modalRef.componentInstance.currentEvent = event;
+      modalRef.result.then((result) => {
+        //console.log(result);
+        this.refreshEvents();
+      }
+      ).catch((error) => {
+        //console.log(error);
+      });
+    }
   }

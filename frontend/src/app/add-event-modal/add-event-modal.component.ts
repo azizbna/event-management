@@ -7,27 +7,39 @@ import { EventsService } from '../services/events.service';
 @Component({
   selector: 'app-add-event-modal',
   templateUrl: './add-event-modal.component.html',
-  styleUrl: './add-event-modal.component.scss'
+  styleUrls: ['./add-event-modal.component.scss']
 })
 export class AddEventModalComponent {
   constructor(
     public modal: NgbActiveModal,
-     public modalService: NgbModal,
-     private eventService: EventsService
-     ) { }
+    public modalService: NgbModal,
+    private eventService: EventsService
+  ) { }
   currentEvent: Evennement = new Evennement();
   @ViewChild('addForm') addForm: NgForm;
+  mode = "";
 
   ngOnInit(): void {
+    if(this.mode == 'maj'){
+      this.currentEvent = JSON.parse(JSON.stringify(this.currentEvent))
+    }
   }
-  
-  submitForm(){
-    this.eventService.addEvent(this.currentEvent).subscribe(
-      (event:any)=>{
-        this.modal.close(event);
-        console.log("Event Inserted: ",event);
-      }
-    );
+
+  submitForm() {
+    if (this.mode === "maj") {
+      this.eventService.modifyEvent(this.currentEvent).subscribe(
+        (event: any) => {
+          this.modal.close(event);
+          console.log("Event Modified: ", event);
+        }
+      );
+    } else {
+      this.eventService.addEvent(this.currentEvent).subscribe(
+        (event: any) => {
+          this.modal.close(event);
+          console.log("Event Inserted: ", event);
+        }
+      );
+    }
   }
-  
 }

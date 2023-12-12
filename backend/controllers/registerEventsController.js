@@ -1,29 +1,17 @@
-<<<<<<< Updated upstream
 import { registrationsCollection } from '../models/registerEvents.model.js';
 
 class User {
-=======
-// registerEventsController.js
-import { registrationsCollection } from '../models/registerEvents.model.js';
-
-class Inscription {
->>>>>>> Stashed changes
     constructor(id, firstName, lastName, email, telephone) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.telephone = telephone;
-<<<<<<< Updated upstream
-=======
-        // Add other fields as needed
->>>>>>> Stashed changes
     }
 }
 
 const registerForEvent = (req, res) => {
     const eventId = req.params.eventId;
-<<<<<<< Updated upstream
 
     // Supposons que req.body contient les détails de l'utilisateur
     const userDetails = req.body.userDetails;
@@ -42,21 +30,6 @@ const registerForEvent = (req, res) => {
     };
 
     // Ajoutez cette inscription à la collection des inscriptions
-=======
-    const userId = req.body.userId;
-
-    // Assuming req.body contains the registration details
-    const registrationDetails = req.body.registrationDetails;
-
-    const registration = {
-        eventId: eventId,
-        userId: userId,
-        registrationDetails: registrationDetails,
-        // You can include more registration details if needed
-    };
-
-    // Assuming registrationsCollection.insertOne expects the entire registration object
->>>>>>> Stashed changes
     registrationsCollection
         .insertOne(registration)
         .then(dbRes => {
@@ -68,7 +41,6 @@ const registerForEvent = (req, res) => {
         });
 };
 
-<<<<<<< Updated upstream
 const getUsersForEvent = (req, res) => {
     const eventId = req.params.eventId;
 
@@ -85,9 +57,3 @@ const getUsersForEvent = (req, res) => {
             res.status(500).send("Internal Server Error");
         });
 };
-
-export { registerForEvent, getUsersForEvent, User };
-// Path: backend/routes/Registrations.js
-=======
-export { registerForEvent, Inscription };
->>>>>>> Stashed changes

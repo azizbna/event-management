@@ -15,4 +15,7 @@ export class EventsService {
   addEvent(event:Evennement){
     return this._http.post(this.baseURL,event);
   }
+  modifyEvent(event:Evennement){
+    return this._http.put(this.baseURL,event);
+  }
 }
