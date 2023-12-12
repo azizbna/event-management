@@ -7,5 +7,6 @@ import {addEvent, getAllEvents} from '../controllers/eventsController.js'
 router.route('/')
     .get(getAllEvents)
     .post(addEvent)
+    
 
 export{router}
