@@ -22,6 +22,7 @@ const getAllEvents = (req, res) => {
 
 }
 
+
 const addEvent = (req, res) => {
     const newEvent = {
         name: req.body.name,
