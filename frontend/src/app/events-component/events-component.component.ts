@@ -19,6 +19,7 @@ import { RegistrationComponent } from '../registration/registration.component';
 })
 export class EventsComponentComponent {
   eventList:Array<Evennement> = [];
+  role = "Admin"
   constructor(private eventService:EventsService, private modal:NgbModal) { }
   ngOnInit(): void {
       this.refreshEvents();
