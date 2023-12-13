@@ -18,4 +18,7 @@ export class EventsService {
   modifyEvent(event:Evennement){
     return this._http.put(this.baseURL,event);
   }
+  deleteEvent(id:string){
+    return this._http.delete(this.baseURL+"/"+id);
+  }
 }

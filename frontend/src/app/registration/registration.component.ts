@@ -12,16 +12,15 @@ import User from '../models/register.model';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-  eventId: string;
+  public eventId: string;
   user: User = {
     id: '',
     firstName: '',
     lastName: '',
     email: '',
     telephone: ''
+  };
 
-
-  }; // Utilisez le modèle
 
   // Ajout de ViewChild pour accéder au formulaire dans le template
   @ViewChild('registrationForm') registrationForm: NgForm;
@@ -29,26 +28,24 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private registrationService: RegistrationService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private activeModal: NgbActiveModal
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.eventId = params.get('eventId');
-    });
   }
 
   registerForEvent(): void {
-    // Vérification de la validité du formulaire avant l'inscription
     if (this.registrationForm.valid) {
       this.registrationService.registerForEvent(this.eventId, this.user)
         .subscribe(response => {
           console.log('Registration successful', response);
+          this.activeModal.close("Success");
         }, error => {
           console.error('Error registering for event', error);
         });
     } else {
-      console.error('Form is not valid');
+      console.error('Form invalide');
     }
   }
 

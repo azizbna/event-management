@@ -8,6 +8,7 @@ import Condedat from '../models/candidate.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddEventModalComponent } from '../add-event-modal/add-event-modal.component';
 import { CandidateListComponent } from '../candidate-list/candidate-list.component';
+import { RegistrationComponent } from '../registration/registration.component';
 
 
 
@@ -46,25 +47,54 @@ export class EventsComponentComponent {
       const modalRef = this.modal.open(AddEventModalComponent, {
         size: 'md',
       });
-      
-    }
-    openListCandedateForm(event:Evennement) {
-      const modalRef = this.modal.open(CandidateListComponent, {
-        size: 'md',
-      });
       modalRef.componentInstance.mode = "maj"
       modalRef.componentInstance.currentEvent = event;
       modalRef.result.then((result) => {
         //console.log(result);
         this.refreshEvents();
+
       }
       ).catch((error) => {
         //console.log(error);
       });
     }
-    handleSecondIconClick(event: Evennement) {
-      // Implement your action logic here
-      console.log('Second Icon Clicked for event:', event);
-      // You can add your logic for the action, e.g., open a modal, show a message, etc.
+    showDeletePopup(event:Evennement) {
+      if(confirm("Etes vous sûr de vouloir supprimer l'évènement "+event.name+" ?")){
+        this.eventService.deleteEvent(event._id).subscribe(
+          (response)=>{
+            this.refreshEvents();
+          },
+          (error)=>{
+            console.error('Error deleting event', error);
+          }
+          );
+        }
     }
+    openListCandedateForm(event:Evennement) {
+      const modalRef = this.modal.open(CandidateListComponent, {
+        size: 'lg',
+      });
+      modalRef.componentInstance.eventId = event._id;
+      modalRef.result.then((result) => {
+        console.log(result);
+      }
+      ).catch((error) => {
+        //console.log(error);
+      });
+    }
+    openEventRegistrationForm(event:Evennement) {
+      const modalRef = this.modal.open(RegistrationComponent, {
+        size: 'md',
+      });
+      modalRef.componentInstance.eventId = event._id;
+      modalRef.result.then((result) => {
+        //console.log(result);
+        this.refreshEvents();
+        modalRef.close();
+      }
+      ).catch((error) => {
+        //console.log(error);
+      });
+    }
+
   }

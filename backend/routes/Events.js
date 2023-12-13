@@ -7,5 +7,7 @@ import {updateEvent, addEvent, getAllEvents,deleteEvent} from '../controllers/ev
 router.route('/')
     .get(getAllEvents)
     .post(addEvent)
-
+    .put(updateEvent)
+router.route('/:id')
+    .delete(deleteEvent)
 export{router}

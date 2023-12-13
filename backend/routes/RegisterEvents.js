@@ -1,16 +1,11 @@
 import express from 'express';
 const router = express.Router();
-import {registerForEvent} from '../controllers/registerEventsController.js'
+import {registerForEvent,getUsersForEvent,deleteRegistration} from '../controllers/registerEventsController.js'
 
 
-router.route('/')  
-   
+router.route('/:eventId')     
     .post(registerForEvent)
-    //get all users for an event
-  
-
-     
-   
-    
-
+    .get(getUsersForEvent);
+router.route('/:registrationID')
+    .delete(deleteRegistration)
 export{router}

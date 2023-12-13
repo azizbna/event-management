@@ -17,13 +17,13 @@ export class CandidateService {
 
     return of(candidates);
   }*/
-  baseURL: string = "http://localhost:3000/candidates"; // Replace with your actual API URL
+  baseURL: string = "http://localhost:3000/registerEvents"; // Replace with your actual API URL
 
   constructor(private _http: HttpClient) { }
 
   
-  getCandidates() {
-    return this._http.get(this.baseURL);
+  getCandidates(eventId: string): Observable<any[]> {
+    return this._http.get<any[]>(this.baseURL + '/' + eventId);
   }
 
   addCandidate(candidate: Candidate) {
@@ -33,6 +33,7 @@ export class CandidateService {
   modifyCandidate(candidate: Candidate){
     return this._http.put(this.baseURL, candidate);
   }
-
-  // Add other methods as needed based on your backend API
+  deleteCandidate(candidateID: string){
+    return this._http.delete(this.baseURL + '/' + candidateID);
+  }
 }

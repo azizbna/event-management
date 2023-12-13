@@ -10,6 +10,7 @@ import { AddEventModalComponent } from './add-event-modal/add-event-modal.compon
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CandidateListComponent } from './candidate-list/candidate-list.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { CandidateListComponent } from './candidate-list/candidate-list.componen
     EventsComponentComponent,
     AddEventModalComponent,
     CandidateListComponent,
-   
+    RegistrationComponent
   ],
   imports: [
     FormsModule,
